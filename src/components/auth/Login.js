@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 
 
 const Login = (props) =>{
-   const {handlelogin} = props 
+   const {handlelogin} = props
   
    const [email,setEmail]=useState('')
    const [password,setPassword]=useState('')
@@ -19,7 +19,10 @@ const Login = (props) =>{
    const runvalidations = () =>{
        if(email.length === 0){
            errors.email = 'email cannot be blanks'
-       }if(password.length === 0){
+       }else if(!validator.isEmail(email)){
+           errors.email ='Invalid email format'
+       }
+       if(password.length === 0){
            errors.password = 'password cannot be blank'
        }else if (password.length <8){
            errors.password = 'password must be between 8-128 characters'
@@ -45,8 +48,6 @@ const Login = (props) =>{
       }else {
           setFormerrors(errors)
       }
-    
-    
    }
     
    const handlechange = (e) =>{
@@ -56,14 +57,34 @@ const Login = (props) =>{
            setPassword(e.target.value)
        }
    }
+
+   const style={
+       marginLeft:'25%',
+       padding:'40px',
+       background:"white",
+       paddingLeft:"290px",
+       allignItems:'center',
+       top:'50%',
+       marginTop:"40px",
+       marginBottom:"200px",
+       marginRight:"240px",
+       boxShadow:"0 0 10px 0"
+   }
+
     return (
-        <div>
+       <div> 
+        
+        <div style={style} >
           <form onSubmit={handlesubmit}>
-             <input type='text' name='email' value ={email} onChange={handlechange} placeholder='email'/> {formerrors.email && <span>{formerrors.email}</span> } <br/>
-             <input type='password' name='password' value={password} onChange={handlechange} placeholder='password'/> {formerrors.password && <span>{formerrors.password}</span>} <br/>
-             <input type='submit' value='Login'/>
+          <h1 style={{color:'blue'}}>Login</h1>   
+             <input type='text' name='email' value ={email} onChange={handlechange} placeholder='email' class="form-control"
+           style={{width:'250px'}}/> {formerrors.email && <span  style={{color:'red'}}>{formerrors.email}</span> } <br/>
+             <input type='password' name='password' value={password} onChange={handlechange} placeholder='password' class="form-control"
+           style={{width:'250px'}}/> {formerrors.password && <span  style={{color:'red'}}>{formerrors.password}</span>} <br/>
+             <input type='submit' value='Login'  class="btn btn-primary"/>
           </form>
         </div>
+       </div> 
     )
 }
 export default Login

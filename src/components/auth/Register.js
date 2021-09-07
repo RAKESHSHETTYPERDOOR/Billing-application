@@ -17,11 +17,14 @@ const Register = (props) =>{
     const dispatch = useDispatch()
 
     const runvalidations = () =>{
-        if(username.length === 0){
+        if(username.trim().length === 0){
             errors.username = 'name cannot be blank'
         }if(email.length === 0){
             errors.email = 'email cannot be blank'
-        }if(password.length === 0 ){
+        }else if(!validator.isEmail(email)){
+            errors.email ='Invalid email format'
+        }
+        if(password.length === 0 ){
           errors.password ='password cannot be blank'
         }else if(password.length <8){
             errors.password = 'password must be between 8-128 charcters'
@@ -73,22 +76,45 @@ const Register = (props) =>{
       }
     }
 
+    const style={
+        marginLeft:'20%',
+        padding:'40px',
+        background:"white",
+        paddingLeft:"330px",
+        allignItems:'center',
+        top:'50%',
+        marginTop:"40px",
+        marginBottom:"200px",
+        marginRight:"250px",
+        boxShadow:"0 0 10px 0"
+    }
+
   return(
-      <div>
+      <div style={style} >
          <form onSubmit={handlesubmit}>
+           <h1 style={{color:'blue'}}>Register</h1>  
            <input type ='text' 
+           class="form-control"
+           style={{width:'250px'}}
            onChange={handlechange} 
            name='username'
            value={username}
            placeholder='username'/> 
-           <span>{formerrors.username}</span>  <br/>
-           <input type='text' onChange={handlechange} name='email' value ={email} placeholder='email'/> 
-           <br/>
-           <input type='password' onChange={handlechange} name='password' value={password} placeholder='password'/>  
-           <span>{formerrors.password}</span><br/>
-           <textarea    onChange={handlechange} name='business' value={business} placeholder='businessname'/>  <br/>
-           <textarea  onChange={handlechange} name='address' value ={address} placeholder='address'/> <br/>
-           <input type='submit' value='Register'/>
+           <span style={{color:'red'}}>{formerrors.username}</span>  <br/>
+           <input type='text' onChange={handlechange} name='email' value ={email} placeholder='email'  class="form-control"
+           style={{width:'250px'}}/> 
+           <span style={{color:'red'}}>{formerrors.email}</span>  <br/>   
+           <input type='password' onChange={handlechange} name='password' value={password} placeholder='password'  class="form-control"
+           style={{width:'250px'}}/>  
+           <span style={{color:'red'}}>{formerrors.password}</span><br/>
+           <textarea    onChange={handlechange} name='business' value={business} placeholder='businessname'  class="form-control"
+           style={{width:'250px'}}/>
+           <span style={{color:'red'}}>{formerrors.business}</span>  <br/>
+            <br/>
+           <textarea  onChange={handlechange} name='address' value ={address} placeholder='address'  class="form-control"
+           style={{width:'250px'}}/> <br/>
+           <span style={{color:'red'}}>{formerrors.address}</span><br/>
+           <input type='submit' value='Register'  class="btn btn-primary"/>
          </form>
       </div>
   )
