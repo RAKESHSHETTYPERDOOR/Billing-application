@@ -24,9 +24,9 @@ const Account = ()=>{
                {account.map((ele,i)=>{
                    return (
                        <div key={i}>
-                       <h1>{ele.username}</h1>
-                       <h4>{ele.address}</h4>
-                       <h4>{ele.businessName}</h4>
+                       <h1>User-{ele.username.toUpperCase()}</h1>
+                       <h4>Address-{ele.address}</h4>
+                       <h4>Business-{ele.businessName}</h4>
                        </div>
                    )
 

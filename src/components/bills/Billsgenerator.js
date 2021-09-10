@@ -15,7 +15,7 @@ const Billgenerator = () =>{
   const [date,setDate] =useState('')
   const [customer,setcustomers]=useState('')
   const [product,setProduct] =useState('')
-  const [quantity,setQuantity] =useState(0)
+  const [quantity,setQuantity] =useState(1)
   const [status,setStatus] =useState(false)
 
   const dispatch = useDispatch()
@@ -111,7 +111,7 @@ const billstyle = {
           <h1>Generate A Bill</h1>
             <form onSubmit={handlesubmit}>
               <label>Select Date</label>
-                <input type="date" class="form-control"  value={date} onChange={handlechange} style={{border: '1px solid #c4c4c4border: 1px solid #c4c4c4',borderRadius:'5px',backgroundColor:'#fff',width:'190px',color:'black'}}/> <br/>
+                <input type="date" className="form-control"  value={date} onChange={handlechange} style={{border: '1px solid #c4c4c4border: 1px solid #c4c4c4',borderRadius:'5px',backgroundColor:'#fff',width:'190px',color:'black'}}/> <br/>
                  <label>Customers</label> 
                   <select name='customer' value={customer} onChange={handleselect} class="form-control" style={{width:'150px'}}>
                      <option value="">Select-Customer</option>
@@ -121,7 +121,7 @@ const billstyle = {
                      })
                     }
                      </select> <br/>
-                         <h1>SELECT-PRODUCT</h1>
+                         <label>Products</label>
                           <select onChange={handleproduct} value={product} class="form-control" style={{width:'150px'}}>
                            <option value="">Select-Product</option>
                              {products.map((ele,i)=>{

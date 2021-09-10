@@ -13,15 +13,8 @@ const CustomerTable = () =>{
                    <th>Delete</th>
                    <th>Delete</th>
                </tr>
-
              </thead>
-
-
-
          </table>
-
-
-
       </div>
  
 

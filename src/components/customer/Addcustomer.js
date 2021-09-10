@@ -9,10 +9,10 @@ const Addcustomer = () =>{
      dispatch(addcustomer(data))
  }
 
-    return(
-        <div>
+    return (
+         <div>
             <Customerform formsubmission={formsubmission}/>
-        </div>
+         </div>
     )
 }
 export default Addcustomer

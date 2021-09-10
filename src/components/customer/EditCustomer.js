@@ -21,8 +21,7 @@ const EditCustomer = (props) =>{
            mobile={mobile}
            email={email}
            formsubmission = {formsubmission}
-           />
-       
+           /> 
         </div>
     )
 }

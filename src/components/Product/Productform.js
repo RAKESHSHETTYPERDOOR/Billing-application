@@ -52,11 +52,11 @@ const Productform = (props) =>{
     return(
         <div>
          <form onSubmit={handlesubmit} class="container-fluid" style={formstyle}>
-           <h1 style={{color:'blue'}}>Add-Product</h1>  
+           <h1 style={{color:'blue'}}>{username?'Edit Product':'Add Product'}</h1>  
            <input type ='text' placeholder='productname' name='productname' onChange={handlechange} value={productname} class="form-control" style={{width:'250px'}}/> 
            {formerrors &&<span style={{color:'blue'}}>{formerrors.productname}</span>} <br/>
            <input type='text' placeholder='price' name='price' value={price} onChange={handlechange} class="form-control" style={{width:'250px'}}/> {formerrors&&<span style={{color:'blue'}}>{formerrors.price}</span>} <br/>
-           <input type='submit' value='add' class="btn btn-primary" style={{width:"50px"}}/>
+           <input type='submit' value={username ?'update' :'add'} class="btn btn-primary" style={{width:"70px"}}/>
          </form>
         </div>
     )

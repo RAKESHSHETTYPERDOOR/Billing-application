@@ -3,6 +3,7 @@ import Productform from "./Productform"
 import { editproduct } from "../../actions/productActions"
 
 const EditProduct = (props) =>{
+
    const {_id,name,price,handletoggle}=props
    const dispatch =useDispatch()
 

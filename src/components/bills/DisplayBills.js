@@ -47,6 +47,7 @@ const DisplayBills = ()=>{
                     return (
                         <div key={i}>
                             <h2 style={{color:'blue'}}>Customer-{displaycustomer(ele.customer)}</h2>
+                            <h2>Date - {ele.date.slice(0,10).split('-').reverse().join('-')}</h2>
                          </div>   
                         
                     )

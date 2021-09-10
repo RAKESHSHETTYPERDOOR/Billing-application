@@ -60,12 +60,12 @@ const Customerform = (props) =>{
 
     return(
         <div class="container-fluid" style={formstyle}>
-            <h1 style={{color:'blue'}}>Add-Customer</h1>
+            <h1 style={{color:'blue'}}>{user ? 'Edit Customer' : 'Add Customer'}</h1>
             <form onSubmit={handlesubmit} >
               <input type='text' placeholder='name' name='name' onChange={handlechange} value={name} class="form-control" style={{width:'250px'}}/> {formerrors.name&& <span style={{color:'red'}}>{formerrors.name}</span>}
               <input type='text' placeholder='email' name='email' onChange={handlechange} value={email} class="form-control" style={{width:'250px'}}/> {formerrors.email&& <span style={{color:'red'}}>{formerrors.email}</span>}
               <input type='text' placeholder='phone' name='phone' onChange={handlechange} value={phone} class="form-control" style={{width:'250px'}}/>  {formerrors.phone&&<span style={{color:'red'}}>{formerrors.phone}</span>} <br/>
-              <input type='submit' value='add' class="btn btn-primary" style={{width:"50px"}}/>
+              <input type='submit' value={user ? 'update' : 'add'} class="btn btn-primary" style={{width:"70px"}}/>
             </form>
         </div>
     )

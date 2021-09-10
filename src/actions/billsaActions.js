@@ -54,7 +54,8 @@ export const allbill = ()=>{
 }
 
 export const deletebill = (id)=>{
-    return ()=>{
+    return (dispatch)=>{
+        dispatch(deletebills(id))
      axios.delete(`http://dct-billing-app.herokuapp.com/api/bills/${id}`,{
          headers:{
              Authorization:`Bearer ${localStorage.getItem('token')}`
@@ -80,5 +81,11 @@ const allbills = (data)=>{
       type:'ALL_BILLS',
       payload:data
   }
+}
 
+const deletebills= (id) => {
+    return {
+        type:'DELETE_BILLS',
+        payload:id
+    }
 }
