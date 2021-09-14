@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Billing  Application
+
+# Overview 
+This is the billing application where the business owner can track the billing information
+
+# Feautres
+  * Business owner can reigister into the application
+  * After the registeration owner login into the application
+  * Where he can add customers and products
+  * Also he can edit or delete the information
+  * He can generate the bill of customers
+  * After the generating the bill the generated bill is converted into pdf and make download of It
+  
+# Dependency
+  1-Axios
+  2-React Modal
+  3-Bootstrap
+  4-React
+  5-Redux
+  6-Redux-thunk
+  7-Validator
+  8-React-Router-Dom  
+ 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
