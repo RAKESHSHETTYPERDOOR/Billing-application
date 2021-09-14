@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSelector,useDispatch } from "react-redux"
+import {withRouter} from 'react-router-dom'
 import { addbill } from "../../actions/billsaActions"
 import AddProduct from "./AddProduct"
 import swal from "sweetalert"
@@ -10,7 +11,7 @@ import DisplayBills from "./DisplayBills"
 
 
 
-const Billgenerator = () =>{
+const Billgenerator = (props) =>{
 
   const [date,setDate] =useState('')
   const [customer,setcustomers]=useState('')
@@ -61,7 +62,7 @@ const Billgenerator = () =>{
   }
 }
 
-  const handlechange = (e)=>{
+  const handlechange = (e) => {
       setDate(e.target.value)
   }
 
@@ -72,23 +73,27 @@ const Billgenerator = () =>{
     }
   }
 
-  const handleproduct = (e)=>{
+  const handleproduct = (e) => {
     setProduct(e.target.value)
   }
 
 
-  const products = useSelector((state)=>{
+  const products = useSelector((state) => {
     return state.products
 })
 
-const handlequantity = ()=>{
+const handlequantity = () => {
   setQuantity(quantity+1)
   setStatus(false)
 }
 
 
 const quantityminus = ()=>{
+  if(quantity<1){
+    setQuantity(1)
+  }else {
   setQuantity(quantity-1)
+  }
   setStatus(false)
 }
   
@@ -113,8 +118,8 @@ const billstyle = {
               <label>Select Date</label>
                 <input type="date" className="form-control"  value={date} onChange={handlechange} style={{border: '1px solid #c4c4c4border: 1px solid #c4c4c4',borderRadius:'5px',backgroundColor:'#fff',width:'190px',color:'black'}}/> <br/>
                  <label>Customers</label> 
-                  <select name='customer' value={customer} onChange={handleselect} class="form-control" style={{width:'150px'}}>
-                     <option value="">Select-Customer</option>
+                  <select name='customer' value={customer} onChange={handleselect} class="form-select"  style={{width:'150px',we:"10px"}}>
+                     <option value="">Select Customer</option>
                      {
                          customers.map((ele,i)=>{
                              return <option value={ele._id} key={i}>{ele.name}</option>
@@ -123,20 +128,21 @@ const billstyle = {
                      </select> <br/>
                          <label>Products</label>
                           <select onChange={handleproduct} value={product} class="form-control" style={{width:'150px'}}>
-                           <option value="">Select-Product</option>
+                           <option value="">Select Product</option>
                              {products.map((ele,i)=>{
                                return <option value={ele._id} key={i} >{ele.name}</option>
                              })}
                     </select>  <br/>       
                    <button onClick={quantityminus} class="btn btn-danger" style={{marginRight:'20px'}}>-1</button><b style={{fontSize:"20px"}}>{quantity}</b><button onClick={handlequantity} class="btn btn-primary" style={{marginLeft:'20px'}}>+1</button>
               <button onClick={addcart} style={{marginLeft:'20px'}} class="btn btn-primary" >Add</button>
-            <DisplayItems/>
+            <DisplayItems status={status}/>
         <button onClick={()=>{setStatus(true)}} class="btn btn-primary" style={{marginTop:'20px'}}>Generate</button>
     </form>
     <DisplayBills/>
         </div>
     )
 }
-export default Billgenerator
+export default withRouter(Billgenerator)
+
                 
                 

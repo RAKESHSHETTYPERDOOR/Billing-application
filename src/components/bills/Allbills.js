@@ -11,6 +11,7 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
+    width:'700px',
     transform: 'translate(-50%, -50%)',
   },
 };
@@ -75,7 +76,7 @@ const Allbills = ()=>{
 
     return (
           <div class="container">
-              <table class="table table-ligth table-striped" style={{width:'70%'}}>
+              <table class="table table-ligth table-striped" style={{width:'80%'}}>
                 <thead >
                    <tr>
                        <th>Name</th>
@@ -91,7 +92,7 @@ const Allbills = ()=>{
                         <tr key={i}>
                           <td>{displaycust(ele.customer)}</td>
                           <td>{ele.date.slice(0,10).split('-').reverse().join('-')}</td>
-                           <td><button onClick={()=>{viewddetails(ele.lineItems)}}>View details</button></td> 
+                           <td><button onClick={()=>{viewddetails(ele.lineItems)}} class="btn btn-primary">View details</button></td> 
                            <td>{ele.total}</td>            
                            <td><button onClick={()=>{handledelte(ele._id)}} class='btn-danger'>Delete</button></td>
                     </tr>    
@@ -110,11 +111,8 @@ const Allbills = ()=>{
                      )
                   }) }
                     
-                    <button onClick={()=>{setOpen(false)}}>Close</button>
-
-
+                    <button onClick={()=>{setOpen(false)}} class="btn btn-danger">Close</button>
               </Modal>
-             
           </div>
     )
 }

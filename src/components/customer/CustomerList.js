@@ -13,8 +13,6 @@ const CustomerList = () =>{
     
     return (
         <div>
-           
-            <h1 style={{marginLeft:'650px',color:'blue'}}>Total-Customers-{customers.length}</h1>
             <CustomerItem/>
         </div>
     )

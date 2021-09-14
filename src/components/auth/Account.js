@@ -6,7 +6,7 @@ const Account = ()=>{
   
     const dispatch =useDispatch()
 
-    useEffect(()=>{
+    useEffect(() => {
         if(localStorage.getItem('token')){
          dispatch(getaccount())
         }
@@ -29,13 +29,9 @@ const Account = ()=>{
                        <h4>Business-{ele.businessName}</h4>
                        </div>
                    )
-
                })}
- 
-
          </div>
     )
-
-
 }
+
 export default Account

@@ -4,6 +4,7 @@ import { delteitems } from "../../actions/billsaActions"
 
 
 const DisplayItems = (props) => {
+    const {status} =props
     
     const dispatch = useDispatch()
 
@@ -32,7 +33,7 @@ const DisplayItems = (props) => {
   
     return (
          <div>
-           {linesItems.length>=1 && <table class="table table-ligth table-striped">
+           {linesItems.length>=1 && !status &&<table class="table table-ligth table-striped">
                 <thead>
                   <tr class='table'>
                     <td>Name</td>

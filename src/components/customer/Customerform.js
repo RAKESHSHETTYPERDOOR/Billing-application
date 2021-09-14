@@ -55,11 +55,16 @@ const Customerform = (props) =>{
   }
 
   const formstyle ={
+      paddingTop:'30px',
+      marginLeft:'1070px'
+  }
+  
+  const formstyle1 = {
       paddingTop:'30px'
   }
 
     return(
-        <div class="container-fluid" style={formstyle}>
+        <div class="container-fluid" style={user?formstyle1:formstyle}>
             <h1 style={{color:'blue'}}>{user ? 'Edit Customer' : 'Add Customer'}</h1>
             <form onSubmit={handlesubmit} >
               <input type='text' placeholder='name' name='name' onChange={handlechange} value={name} class="form-control" style={{width:'250px'}}/> {formerrors.name&& <span style={{color:'red'}}>{formerrors.name}</span>}

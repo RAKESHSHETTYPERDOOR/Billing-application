@@ -53,12 +53,11 @@ const customStyles = {
 
     return(
         <div>
-          <input type="text" value={search} onChange={handlechange} placeholder='search' class="form-control" style={{width:'250px',marginLeft:'700px'}}/>
+         
           {
             toggle ?
             <div>
-               <Modal isOpen={modalIsOpen} style={customStyles}>
-                 
+               <Modal isOpen={modalIsOpen} style={customStyles}>         
                   <EditProdut
                   _id={data.id?data.id:''}
                   name={data.name?data.name:''}
@@ -68,12 +67,16 @@ const customStyles = {
                <button onClick={handletoggle} class="btn btn-danger" style={{marginTop:'20px',width:'80px'}}>Cancel</button>
                </Modal>
                </div>:
-               <div class="container-fluid" style={{width:'70%'}}> 
-                 <table>
+               <div class="container-fluid" style={{width:'70%',marginTop:'-230px',marginRight:'400px'}}> 
+                <input type="text" value={search} onChange={handlechange} placeholder='search' class="form-control" style={{width:'240px'}}/>
+               <h1 style={{color:'blue'}}>Total-Proudcts-{products.length}</h1>
+                 <table class="table table-ligth table-striped">
                   <thead>
                       <tr>
                         <th>Name</th>
                         <th>Price</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
                       </tr>
                   </thead>
                   <tbody>

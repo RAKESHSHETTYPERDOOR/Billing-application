@@ -48,6 +48,7 @@ const Dashboard =() =>{
 
     return(
         <div style={display}>
+          
           <h1 style={{color:'black',boxShadow:"0 0 10px 0",height:'200px',padding:'30px'}}>Total-Customers-{customers.length}</h1>
           <h1 style={{color:'black',boxShadow:"0 0 10px 0",height:'200px',padding:'30px'}}>Total-Products-{products.length}</h1>
           <h1 style={{color:'black',boxShadow:"0 0 10px 0",padding:'30px'}}>All-Bills-{allbills.length}</h1>

@@ -45,13 +45,18 @@ const Productform = (props) =>{
     }
 
     const formstyle ={
-        paddingTop:'30px'
+        paddingTop:'30px',
+        marginLeft:'1070px'
+    }
+
+    const formstyle1 = {
+        paddingTop:"30px"
     }
 
 
     return(
         <div>
-         <form onSubmit={handlesubmit} class="container-fluid" style={formstyle}>
+         <form onSubmit={handlesubmit} class="container-fluid" style={username ? formstyle1:formstyle}>
            <h1 style={{color:'blue'}}>{username?'Edit Product':'Add Product'}</h1>  
            <input type ='text' placeholder='productname' name='productname' onChange={handlechange} value={productname} class="form-control" style={{width:'250px'}}/> 
            {formerrors &&<span style={{color:'blue'}}>{formerrors.productname}</span>} <br/>

@@ -35,7 +35,6 @@ const CustomerItem = (props) =>{
           email:email,
           user:user
       })
-
       setToggle(!toggle)  
       setOpen(!modalIsOpen)
   }
@@ -59,7 +58,9 @@ const CustomerItem = (props) =>{
     return(
         <div>
         <div class="container-fluid">
-        <input type="text" value={search} onChange={handlechange} class="form-control" placeholder="Search" style={{width:'250px',marginLeft:'700px'}}/>
+                 
+                   
+        
             {
                 toggle ?
                 <div>
@@ -77,9 +78,10 @@ const CustomerItem = (props) =>{
                </div>
              
                 :
-                <div class="container-fluid" style={{width:'70%'}}>
-              
-               <table class="table table-ligth table-striped">
+                <div class="container-fluid" style={{width:'70%',marginTop:'-230px',marginRight:'400px'}}>
+                 <input type="text" value={search} onChange={handlechange} class="form-control" placeholder="Search" style={{width:'240px'}}/>    
+                  <h1 style={{color:'blue'}}>Total-Customers-{customers.length}</h1> 
+                 <table class="table table-ligth table-striped">
                  <thead>
                     <tr>
                       <th>Name</th>
