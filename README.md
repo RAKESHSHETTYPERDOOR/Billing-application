@@ -13,12 +13,19 @@ This is the billing application where the business owner can track the billing i
   
 # Dependency
   1-Axios
+
   2-React Modal
+
   3-Bootstrap
+
   4-React
+
   5-Redux
+
   6-Redux-thunk
+
   7-Validator
+  
   8-React-Router-Dom  
  
 
