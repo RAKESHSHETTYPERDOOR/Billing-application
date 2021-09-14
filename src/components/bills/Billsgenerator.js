@@ -109,7 +109,7 @@ const billstyle = {
        marginBottom:"200px",
        marginRight:"240px",
        
-}
+  }
 
     return(
         <div style={billstyle}>
@@ -140,7 +140,7 @@ const billstyle = {
     </form>
     <DisplayBills/>
         </div>
-    )
+   )
 }
 export default withRouter(Billgenerator)
 
