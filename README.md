@@ -25,8 +25,12 @@ This is the billing application where the business owner can track the billing i
   6-Redux-thunk
 
   7-Validator
-  
+
   8-React-Router-Dom  
+
+  9-React-to-Pdf
+
+  10-Sweet alert
  
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
