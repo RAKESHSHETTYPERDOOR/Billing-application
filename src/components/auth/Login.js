@@ -73,7 +73,6 @@ const Login = (props) =>{
 
     return (
        <div> 
-        
         <div style={style} >
           <form onSubmit={handlesubmit}>
           <h1 style={{color:'blue'}}>Login</h1>   

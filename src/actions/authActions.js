@@ -1,10 +1,10 @@
-import axios  from "axios";
+import axios  from "../config/axiosConfig";
 import swal from 'sweetalert'
 
 export const register = (data,redirect)=>{
   
     return (dispatch)=>{
-        axios.post('https://dct-billing-app.herokuapp.com/api/users/register',data)
+        axios.post('/users/register',data)
         .then((Response)=>{
             const data=(Response.data)
             console.log('register',data)
@@ -20,12 +20,14 @@ export const register = (data,redirect)=>{
         .catch((err)=>{
             alert(err.message)
         })
+      }
     }
-}
 
-export const login =(data,hanldelogin,handeredirect)=>{
+
+
+export const login = (data,hanldelogin,handeredirect)=>{
   return(dispatch)=>{
-      axios.post('https://dct-billing-app.herokuapp.com/api/users/login',data)
+      axios.post('/users/login',data)
       .then((response)=>{
         const data=response.data
         if(data.hasOwnProperty('errors')){
@@ -47,7 +49,7 @@ export const login =(data,hanldelogin,handeredirect)=>{
 
 export const getaccount = ()=>{
   return (dispatch)=>{
-        axios.get('https://dct-billing-app.herokuapp.com/api/users/account',{
+        axios.get('/users/account',{
           headers:{
             Authorization:`Bearer ${localStorage.getItem('token')}`
           }

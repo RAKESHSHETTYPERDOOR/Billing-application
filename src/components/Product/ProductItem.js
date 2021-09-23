@@ -14,7 +14,7 @@ const ProductItem = (props) =>{
 
 
   const products = useSelector((state)=>{
-    return state.products.filter((ele)=>{
+    return state.products.reverse().filter((ele)=>{
       if(ele.name.includes(search)){
           return {...ele}
       }
@@ -67,7 +67,7 @@ const customStyles = {
                <button onClick={handletoggle} class="btn btn-danger" style={{marginTop:'20px',width:'80px'}}>Cancel</button>
                </Modal>
                </div>:
-               <div class="container-fluid" style={{width:'70%',marginTop:'-230px',marginRight:'400px'}}> 
+               <div class="container-fluid" style={{width:'70%',marginTop:'-180px',marginRight:'400px'}}> 
                 <input type="text" value={search} onChange={handlechange} placeholder='search' class="form-control" style={{width:'240px'}}/>
                <h1 style={{color:'blue'}}>Total-Proudcts-{products.length}</h1>
                  <table class="table table-ligth table-striped">

@@ -58,9 +58,6 @@ const CustomerItem = (props) =>{
     return(
         <div>
         <div class="container-fluid">
-                 
-                   
-        
             {
                 toggle ?
                 <div>

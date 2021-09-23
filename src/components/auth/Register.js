@@ -90,7 +90,7 @@ const Register = (props) =>{
     }
 
   return(
-      <div style={style} >
+      <div style={style}>
          <form onSubmit={handlesubmit}>
            <h1 style={{color:'blue'}}>Register</h1>  
            <input type ='text' 

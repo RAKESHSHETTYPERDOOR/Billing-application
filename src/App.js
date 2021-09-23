@@ -13,7 +13,7 @@ import Bills from './components/bills/Bills';
 import  Account  from './components/auth/Account';
 import Allbills from './components/bills/Allbills';
 
-const App = (props) =>{
+const App = (props) => {
   const  [login,isLogin] = useState(false)
 
   const handlelogin = () =>{

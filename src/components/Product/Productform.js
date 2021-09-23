@@ -1,14 +1,14 @@
 import { useState } from "react"
 
 
+const Productform = (props) => {
 
-const Productform = (props) =>{
-    const {_id,name:username,price:cost,formsubmission} =props
-    const [productname,setProductname] =useState(username?username:'')
+    const {_id,name:Productname,price:cost,formsubmission} = props
+    const [productname,setProductname] =useState(Productname?Productname:'')
     const [price,setPrice] =useState(cost?cost:'')
     const [formerrors,setFormerrors] =useState({})
 
-    const errors ={}
+    const errors = {}
 
     const runvalidation = () =>{
         if(productname.length === 0){
@@ -38,7 +38,9 @@ const Productform = (props) =>{
       if(Object.keys(errors).length === 0){
           setFormerrors({})
           formsubmission(_id,formdata)
-      }if(Object.keys(errors).length >1){
+          setProductname('')
+          setPrice('')
+      }else {
           setFormerrors(errors)
       }
 
@@ -56,12 +58,11 @@ const Productform = (props) =>{
 
     return(
         <div>
-         <form onSubmit={handlesubmit} class="container-fluid" style={username ? formstyle1:formstyle}>
-           <h1 style={{color:'blue'}}>{username?'Edit Product':'Add Product'}</h1>  
-           <input type ='text' placeholder='productname' name='productname' onChange={handlechange} value={productname} class="form-control" style={{width:'250px'}}/> 
-           {formerrors &&<span style={{color:'blue'}}>{formerrors.productname}</span>} <br/>
-           <input type='text' placeholder='price' name='price' value={price} onChange={handlechange} class="form-control" style={{width:'250px'}}/> {formerrors&&<span style={{color:'blue'}}>{formerrors.price}</span>} <br/>
-           <input type='submit' value={username ?'update' :'add'} class="btn btn-primary" style={{width:"70px"}}/>
+         <form onSubmit={handlesubmit} class="container-fluid" style={Productname ? formstyle1:formstyle}>
+           <h1 style={{color:'blue'}}>{Productname?'Edit Product':'Add Product'}</h1>  
+           <input type ='text' placeholder='productname' name='productname' onChange={handlechange} value={productname} class="form-control" style={Productname?{width:'200px',display:'block'}:{width:'250px',display:'inline'}}/> {formerrors.productname ? <span style={{color:'red'}}> <br/> {formerrors.productname}</span>:null}  <br/> 
+           <input type='text' placeholder='price' name='price' value={price} onChange={handlechange} class="form-control" style={Productname?{width:'200px',display:'block'}:{width:'250px',display:'inline'}}/> <br/> {formerrors.price ? <span style={{color:'red'}}>{formerrors.price}</span>:null} <br/>
+           <input type='submit' value={Productname ?'update' :'add'} class="btn btn-primary" style={{width:"70px"}}/>
          </form>
         </div>
     )

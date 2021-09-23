@@ -67,8 +67,7 @@ export const editcustomer = (id,data) =>{
       .catch((err)=>{
           alert(err.message)
       })
-    }
-    
+    }   
 }
 
 

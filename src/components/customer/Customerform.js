@@ -1,21 +1,22 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
 import validator from "validator"
 
 
 
-const Customerform = (props) =>{
-    const {_id,name:user,email:useremail,mobile:userphone,formsubmission} = props
+const Customerform = (props) => {
+  const {_id,name:user,mobile:userphone,email:useremail,formsubmission} = props
+  console.log('mobile-number',userphone)
 
-  const [name,setName] = useState(user?user:'')
+  const [name,setName]   = useState(user? user: '')
   const [email,setEmail] = useState(useremail?useremail:'')
   const [phone,setPhone] = useState(userphone?userphone:'')
   const [formerrors,setFormerrors] =useState({})
 
-  const dispatch = useDispatch()
-  const errors={}
   
-  const runvalidation =() =>{
+
+  const errors = {}
+  
+  const runvalidation =() => {
       if(name.trim().length === 0){
           errors.name = 'name cannot be blank'
       }if(email.trim().length === 0){
@@ -24,37 +25,44 @@ const Customerform = (props) =>{
           errors.email='Invalid email format'
       }
       if(phone.trim().length === 0){
-          errors.phone ='phone cannot be blank'
+          errors.phone = 'phone cannot be blank'
       }
   }
    
-  const handlechange = (e)=>{
+  const handlechange = (e) => {
       if(e.target.name === 'name'){
-          console.log(e.target.value)
+          console.log(e.target.name)
+         
           setName(e.target.value)
       }if(e.target.name === 'email'){
+          console.log(e.target.name)
           setEmail(e.target.value)
       }if(e.target.name === 'phone'){
+          console.log(e.target.name)
           setPhone(e.target.value)
       }
-  }
+    }
 
-  const handlesubmit =(e)=>{
+  const handlesubmit = (e) => {
    e.preventDefault()
    runvalidation()
-   if(Object.keys(errors).length ===0){
-   const formdata= {
+   if(Object.keys(errors).length === 0){
+   const formdata = {
        name:name,
        email:email,
        mobile:phone
    }
    formsubmission(_id,formdata)
-}else {
+   setName('')
+   setPhone('')
+   setEmail('')
+  } 
+  else {
     setFormerrors(errors)
+ }
 }
-  }
 
-  const formstyle ={
+  const formstyle = {
       paddingTop:'30px',
       marginLeft:'1070px'
   }
@@ -62,16 +70,17 @@ const Customerform = (props) =>{
   const formstyle1 = {
       paddingTop:'30px'
   }
-
     return(
-        <div class="container-fluid" style={user?formstyle1:formstyle}>
+        <div style={user?formstyle1:formstyle}>
             <h1 style={{color:'blue'}}>{user ? 'Edit Customer' : 'Add Customer'}</h1>
-            <form onSubmit={handlesubmit} >
-              <input type='text' placeholder='name' name='name' onChange={handlechange} value={name} class="form-control" style={{width:'250px'}}/> {formerrors.name&& <span style={{color:'red'}}>{formerrors.name}</span>}
-              <input type='text' placeholder='email' name='email' onChange={handlechange} value={email} class="form-control" style={{width:'250px'}}/> {formerrors.email&& <span style={{color:'red'}}>{formerrors.email}</span>}
-              <input type='text' placeholder='phone' name='phone' onChange={handlechange} value={phone} class="form-control" style={{width:'250px'}}/>  {formerrors.phone&&<span style={{color:'red'}}>{formerrors.phone}</span>} <br/>
-              <input type='submit' value={user ? 'update' : 'add'} class="btn btn-primary" style={{width:"70px"}}/>
+           <div class="mb-3"> 
+            <form onSubmit={handlesubmit}> 
+              <input type="text" onChange={handlechange}  value={name} class="form-control" placeholder='name'  name='name'  style={user?{width:'200px',display:'block'}:{width:'250px',display:'inline'}}/>  {formerrors.name ?<span style={{color:'red'}}>{formerrors.name}</span>:null}    
+              <input type="email"  class="form-control" placeholder='email' name='email'  onChange={handlechange} value={email}  style={user?{width:'200px',display:'block'}:{width:'250px',display:'inline'}}/>  {formerrors.email ?<span style={{color:'red'}}>{formerrors.email}</span>:null}
+              <input type="text"  class="form-control" placeholder='phone' name='phone'  onChange={handlechange} value={phone}  style={user?{width:'200px',display:'block'}:{width:'250px',display:'inline'}}/>   {formerrors.phone ?<span style={{color:'red'}}>{formerrors.phone}</span>:null} <br/>
+              <input type='submit' value={user ? "update":'add'} class="btn btn-primary" style={{width:"70px"}}/>
             </form>
+          </div>  
         </div>
     )
 }

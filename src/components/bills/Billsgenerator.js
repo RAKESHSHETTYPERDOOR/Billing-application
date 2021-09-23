@@ -89,7 +89,7 @@ const handlequantity = () => {
 
 
 const quantityminus = ()=>{
-  if(quantity<1){
+  if(quantity<=1){
     setQuantity(1)
   }else {
   setQuantity(quantity-1)

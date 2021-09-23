@@ -19,7 +19,7 @@ export const getProduct = ()=>{
 
 export const addproduct =(data)=>{
   return(dispatch)=>{
-    axios.post(' https//dct-billing-app.herokuapp.com/api/products',data,{
+    axios.post('https://dct-billing-app.herokuapp.com/api/products',data,{
         headers:{
             Authorization:`Bearer ${localStorage.getItem('token')}`
       }
