@@ -9,7 +9,6 @@ export const allbillsreducers = (state=initialstate,action)=>{
                 return ele._id !== action.payload
             })
        }
-
        default :{
         return [...state]
      }
